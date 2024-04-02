@@ -3,7 +3,7 @@ name: hello_world
 on:
   workflow_dispatch:
   schedule:
-    - cron: '11 11 * * *'
+    - cron: '* * * * *'
 
 jobs:
   test_schedule:
