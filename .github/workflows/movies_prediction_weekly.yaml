@@ -23,5 +23,8 @@ jobs:
           pip install -r ./requirements.txt
           
       - name: execute python workflows from bash script
+        env: 
+          HOPSWORKS_KEY: ${{ secrets.HOPSWORKS_KEY }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
 
         run: python ./movies_prediction_weekly.py

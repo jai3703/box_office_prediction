@@ -2,15 +2,14 @@ import pandas as pd
 import numpy as np
 import hopsworks
 import joblib
-from dotenv import load_dotenv
 import os
-load_dotenv()
 from src import helpers
 
 
 
 def predict_movie_revenue():
     api_key = os.getenv("HOPSWORKS_KEY")
+    print(api_key)
     project = hopsworks.login(api_key_value=api_key)
     fs = project.get_feature_store()
     # Retrieve feature groups
