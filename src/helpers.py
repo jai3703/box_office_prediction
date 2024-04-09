@@ -6,7 +6,6 @@ import numpy as np
 from dotenv import load_dotenv
 import os
 from datetime import date , timedelta
-load_dotenv()
 api_key = os.getenv("TMDB_API_KEY")
 
 def get_movie_details(movie_id:int)->dict: 

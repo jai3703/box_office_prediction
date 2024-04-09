@@ -2,4 +2,11 @@ pytest ~= 8.1.1
 pandas
 polars == 0.18.2
 plotly
-
+numpy
+hopsworks
+joblib
+python-dotenv
+scikit-learn
+xgboost
+statsmodels
+requests
