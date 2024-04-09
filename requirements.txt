@@ -6,3 +6,7 @@ numpy
 hopsworks
 joblib
 python-dotenv
+scikit-learn
+xgboost
+statsmodels
+requests
