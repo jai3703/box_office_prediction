@@ -5,6 +5,7 @@ import json
 import numpy as np
 from dotenv import load_dotenv
 import os
+from datetime import date , timedelta
 load_dotenv()
 api_key = os.getenv("TMDB_API_KEY")
 
@@ -70,4 +71,24 @@ def get_features_movie(movie_id:int)->dict:
     response['crew_popularity'] = get_cast_crew_popularity('crew',movie_id)
     response['star_present'] = get_star_power(movie_id)
     return response
+
+
+def get_upcoming_movies_list()->pd.DataFrame:
+    today_date = date.today()
+    next_week_date = today_date + timedelta(days=7)
+    url = (f"""https://api.themoviedb.org/3/discover/movie?api_key={api_key}&include_adult=false&include_video=false&page=1&"""
+        f"""release_date.gte={str(today_date)}&release_date.lte={str(next_week_date)}&"""
+            f"""sort_by=revenue.desc&with_original_language=hi&with_release_type=2|3""")
+    response = requests.get(url).json()
+    upcoming_release =pd.DataFrame(response['results'])
+    movie_details = pd.DataFrame()
+    for i in range(len(upcoming_release)):
+        movie_details= pd.concat([movie_details,
+                              pd.DataFrame([get_features_movie(upcoming_release['id'][i])]
+                                           )])
+    movie_details = movie_details[movie_details['budget']>0].reset_index(drop=True)
+    #movie_details = movie_details.drop('revenue',axis=1)
+    return movie_details
     
+
+

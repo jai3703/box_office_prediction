@@ -1,4 +1,4 @@
-name: hello_world
+name: movies_prediction_weekly
 
 on:
   workflow_dispatch:
@@ -24,4 +24,4 @@ jobs:
           
       - name: execute python workflows from bash script
 
-        run: python ./hello_world.py
+        run: python ./movies_prediction_weekly.py
