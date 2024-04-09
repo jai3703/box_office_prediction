@@ -5,4 +5,4 @@ plotly
 numpy
 hopsworks
 joblib
-dotenv
+python-dotenv
