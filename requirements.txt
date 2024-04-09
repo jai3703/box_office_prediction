@@ -4,4 +4,4 @@ polars == 0.18.2
 plotly
 numpy
 hopsworks
-
+joblib
