@@ -4,3 +4,4 @@ data
 .github
 __pycache__
 .pytest_cache
+logs.log
